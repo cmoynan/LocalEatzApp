@@ -1,0 +1,20 @@
+<!-- restaurants/templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home - Localeatz{% endblock %}
+
+{% block content %}
+<h2>Restaurants</h2>
+<ul class="restaurant-list">
+    {% for restaurant in restaurants %}
+        <li class="restaurant-item">
+            <strong>{{ restaurant.name }}</strong><br>
+            Address: {{ restaurant.address }}<br>
+            Phone: {{ restaurant.phone_number }}<br>
+            Email: {{ restaurant.email }}
+        </li>
+    {% empty %}
+        <li>No restaurants available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
