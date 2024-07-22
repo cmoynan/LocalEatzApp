@@ -5,4 +5,4 @@ from .models import Restaurant
 
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ('name', 'address', 'phone_number', 'email')
+    list_display = ('name', 'address', 'description', 'image')

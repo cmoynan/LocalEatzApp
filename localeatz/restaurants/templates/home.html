@@ -10,8 +10,10 @@
         <li class="restaurant-item">
             <strong>{{ restaurant.name }}</strong><br>
             Address: {{ restaurant.address }}<br>
-            Phone: {{ restaurant.phone_number }}<br>
-            Email: {{ restaurant.email }}
+            Description: {{ restaurant.description }}<br>
+            {% if restaurant.image %}
+                <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" style="width:200px;"><br>
+            {% endif %}
         </li>
     {% empty %}
         <li>No restaurants available.</li>
