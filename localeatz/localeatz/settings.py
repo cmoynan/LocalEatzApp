@@ -50,6 +50,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-cmoynan-localeatzapp-43ek0py2g4g.ws.codeinstitute-ide.net',
+]
+
+
 ROOT_URLCONF = 'localeatz.urls'
 
 TEMPLATES = [
