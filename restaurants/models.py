@@ -11,3 +11,12 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.name
 
+class Booking(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    date = models.DateField()
+    time = models.TimeField()
+    party_size = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"Booking for {self.name} at {self.restaurant.name} on {self.date} at {self.time}"
