@@ -9,17 +9,18 @@ def home(request):
 
 def book_table(request, restaurant_id):
     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
-    return render(request, 'book_table.html', {'restaurant': restaurant})
-
-def submit_booking(request, restaurant_id):
-    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
             booking.restaurant = restaurant
             booking.save()
-            return redirect('home')
+            return redirect('booking_success')
     else:
         form = BookingForm()
-    return render(request, 'restaurants/booking_form.html', {'form': form, 'restaurant': restaurant})
+    return render(request, 'restaurants/book_table.html', {'form': form, 'restaurant': restaurant})
+
+def booking_success(request):
+    return render(request, 'restaurants/booking_success.html')      
+
+
