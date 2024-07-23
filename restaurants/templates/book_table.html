@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Table - {{ restaurant.name }}{% endblock %}
+
+{% block content %}
+<h2>Book a Table at {{ restaurant.name }}</h2>
+<p>Address: {{ restaurant.address }}</p>
+<p>Description: {{ restaurant.description }}</p>
+
+<form method="post" action="{% url 'submit_booking' restaurant.id %}">
+    {% csrf_token %}
+    <!-- Add your booking form fields here -->
+    <label for="name">Your Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="date">Date:</label><br>
+    <input type="date" id="date" name="date" required><br><br>
+    
+    <label for="time">Time:</label><br>
+    <input type="time" id="time" name="time" required><br><br>
+    
+    <label for="party_size">Party Size:</label><br>
+    <input type="number" id="party_size" name="party_size" required><br><br>
+    
+    <input type="submit" value="Book Now">
+</form>
+{% endblock %}
