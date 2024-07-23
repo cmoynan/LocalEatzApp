@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - Localeatz{% endblock %}
+{% block title %}Home - LocalEatz{% endblock %}
 
 {% block content %}
 <h2>Restaurants</h2>
@@ -11,9 +11,9 @@
             Address: {{ restaurant.address }}<br>
             Description: {{ restaurant.description }}<br>
             {% if restaurant.image %}
-                <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" style="width:200px;"><br>
+                <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" class="restaurant-image"><br>
             {% endif %}
-            <a href="{% url 'book_table' restaurant.id %}" class="book-now-button">Book Now</a>
+            <a href="{% url 'submit_booking' restaurant.id %}" class="book-now-button">Book Now</a>
         </li>
     {% empty %}
         <li>No restaurants available.</li>
