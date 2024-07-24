@@ -4,7 +4,9 @@
 {% block title %}Home - Localeatz{% endblock %}
 
 {% block content %}
-<h2>Restaurants</h2>
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 <ul class="restaurant-list">
     {% for restaurant in restaurants %}
         <li class="restaurant-item">
