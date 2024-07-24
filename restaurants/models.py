@@ -7,6 +7,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='restaurant_images/', blank=True, null=True)
+    max_tables = models.IntegerField(default=3)
 
     def __str__(self):
         return self.name

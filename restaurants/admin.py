@@ -5,7 +5,7 @@ from .models import Restaurant, Booking
 
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ('name', 'address', 'description', 'image')
+    list_display = ('name', 'address', 'description', 'image', 'max_tables')
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
