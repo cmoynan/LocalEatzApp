@@ -34,6 +34,17 @@ header h1 {
     text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.7); /* Funky text shadow */
 }
 
+.btn-custom {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #e91e63;
+    color: #fff;
+}
+
 /* Main Content Styling */
 main {
     padding: 4rem 1rem 1rem; /* Add top padding to avoid content hiding behind header */

@@ -16,34 +16,40 @@
 </head>
 
 <body>
-    <header>
+    <header class="d-flex flex-column align-items-center">
         <h1>LocalEatz</h1>
-      
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="btn btn-primary m-1" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="btn btn-primary m-1" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary m-1" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <main>
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                href="{% url 'account_logout' %}">Logout</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                href="{% url 'account_signup' %}">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                href="{% url 'account_login' %}">Login</a>
-        </li>
-        {% endif %}
+    <main class="container mt-5">
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer>
+    <footer class="bg-dark text-center text-white py-3">
         <p>&copy; 2024 LocalEatz. All rights reserved.</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
