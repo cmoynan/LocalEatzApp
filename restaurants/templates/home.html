@@ -7,8 +7,8 @@
     {% for restaurant in restaurants %}
         <li class="restaurant-item">
             <strong>{{ restaurant.name }}</strong><br>
+            {{ restaurant.description }}<br>
             Address: {{ restaurant.address }}<br>
-            Description: {{ restaurant.description }}<br>
             {% if restaurant.image %}
                 <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" style="width:200px;"><br>
             {% endif %}
