@@ -34,6 +34,11 @@ def book_table(request, restaurant_id):
     })
 
 def booking_success(request):
-    return render(request, 'restaurants/booking_success.html')     
+    return render(request, 'restaurants/booking_success.html')
+
+@login_required
+def my_bookings(request):
+    bookings = Booking.objects.filter(user=request.user).order_by('-date', '-time')
+    return render(request, 'users/my_bookings.html', {'bookings': bookings})     
 
 

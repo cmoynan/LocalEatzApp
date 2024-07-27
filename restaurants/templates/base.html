@@ -27,6 +27,9 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="btn btn-primary m-1" href="{% url 'my_bookings' %}">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="btn btn-primary m-1" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
