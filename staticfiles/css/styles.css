@@ -19,7 +19,6 @@ body {
 header {
     background: rgba(0, 0, 0, 0.8); /* Darker smoky background */
     color: #ff4081; /* Funky pink color */
-    padding: 1rem;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -34,10 +33,16 @@ header h1 {
     text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.7); /* Funky text shadow */
 }
 
-btn-primary m-1 {
+.btn-primary {
     background-color: #ff4081;
     color: #fff;
     border: none;
+}
+
+.btn-primary:hover {
+    background-color: #ee9db8;
+    transform: scale(1.05);
+    color: #fff;
 }
 
 
@@ -52,9 +57,11 @@ btn-primary m-1 {
     color: #fff;
 }
 
+
 /* Main Content Styling */
 main {
-    padding: 4rem 1rem 1rem; /* Add top padding to avoid content hiding behind header */
+    padding: 4rem 1rem 1rem;
+    margin-top: 4rem; 
 }
 
 /* Restaurant List Styling */
@@ -101,6 +108,12 @@ main {
     background: #e91e63; /* Darker pink on hover */
     transform: scale(1.05); /* Slightly enlarge button on hover */
     text-decoration: none;
+}
+
+.booking-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 /* Footer Styling */
