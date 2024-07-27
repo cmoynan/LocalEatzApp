@@ -19,6 +19,7 @@ def book_table(request, restaurant_id):
             # Save the booking
             booking = form.save(commit=False)
             booking.restaurant = restaurant
+            booking.user = request.user
             booking.save()
             
             return render(request, 'restaurants/booking_success.html')  
@@ -36,9 +37,9 @@ def book_table(request, restaurant_id):
 def booking_success(request):
     return render(request, 'restaurants/booking_success.html')
 
-@login_required
 def my_bookings(request):
-    bookings = Booking.objects.filter(user=request.user).order_by('-date', '-time')
+    user = request.user
+    bookings = Booking.objects.filter(user=user)  # Filter by user
     return render(request, 'users/my_bookings.html', {'bookings': bookings})     
 
 
