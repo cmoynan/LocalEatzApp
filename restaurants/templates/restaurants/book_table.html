@@ -3,24 +3,26 @@
 {% block title %}Book Table - {{ restaurant.name }}{% endblock %}
 
 {% block content %}
-<h2>Book a Table at {{ restaurant.name }}</h2>
-<p>Address: {{ restaurant.address }}</p>
-<p>Description: {{ restaurant.description }}</p>
+<div class="booking-container">
+    <div class="booking-content">
+        <h2>Book a Table at {{ restaurant.name }}</h2>
 
-<form method="post" action="{% url 'book_table' restaurant.id %}">
-    {% csrf_token %}
-    <label for="name">Your Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
-    
-    <label for="date">Date:</label><br>
-    <input type="date" id="date" name="date" required><br><br>
-    
-    <label for="time">Time:</label><br>
-    <input type="time" id="time" name="time" required min="12:00" max="20:30"><br><br>
-    
-    <label for="party_size">Party Size:</label><br>
-    <input type="number" id="party_size" name="party_size" required min="2" max="8"><br><br>
-    
-    <input type="submit" value="Book Now">
-</form>
+        <form method="post" action="{% url 'book_table' restaurant.id %}">
+            {% csrf_token %}
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <label for="time">Time:</label><br>
+            <input type="time" id="time" name="time" required min="12:00" max="20:30"><br><br>
+
+            <label for="party_size">Party Size:</label><br>
+            <input type="number" id="party_size" name="party_size" required min="2" max="8"><br><br>
+
+            <input type="submit" value="Book Now">
+        </form>
+    </div>
+</div>
 {% endblock %}
