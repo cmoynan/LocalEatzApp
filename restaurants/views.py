@@ -21,8 +21,7 @@ def book_table(request, restaurant_id):
             booking.restaurant = restaurant
             booking.save()
             
-            messages.success(request, 'Your table has been successfully booked!')
-            return redirect('booking_success')
+            return render(request, 'restaurants/booking_success.html')  
         else:
             
             messages.error(request, 'Please correct the errors below.')

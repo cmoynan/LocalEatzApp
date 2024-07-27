@@ -3,8 +3,9 @@
 {% block title %}Booking Successful{% endblock %}
 
 {% block content %}
-<h2>Your booking was successful!</h2>
-<p>Thank you for booking with LocalEatz. We look forward to seeing you soon.</p>
-<a href="{% url 'home' %}">Back to Home</a>
+<div class="container mt-5 text-center">
+    <h2 class="mb-4">Your booking was successful!</h2>
+    <p class="mb-4">Thank you for booking with LocalEatz. We look forward to seeing you soon.</p>
+    <a href="{% url 'home' %}" class="btn btn-custom">Back to Home</a>
+</div>
 {% endblock %}
-
