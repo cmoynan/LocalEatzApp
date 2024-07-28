@@ -42,4 +42,9 @@ def my_bookings(request):
     bookings = Booking.objects.filter(user=user)  # Filter by user
     return render(request, 'users/my_bookings.html', {'bookings': bookings})     
 
+@login_required
+def cancel_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    booking.delete()  # Remove the booking
+    return redirect('my_bookings')
 
