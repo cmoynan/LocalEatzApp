@@ -5,13 +5,27 @@
 {% block content %}
 <div class="container mt-5">
     <h2>About Us</h2>
-    <p>Welcome to LocalEatz, your go-to platform for booking tables at your favorite local restaurants.</p>
+    <p>Welcome to LocalEatz! We connect you with the best local restaurants for an amazing dining experience.</p>
 
     <h3>Contact Us</h3>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <p>If you're a restaurant interested in joining our platform, please fill out the form below:</p>
+
+    <div class="contact-form-container" style="display: flex; justify-content: center;">
+        <form method="post" style="width: 100%; max-width: 600px;">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group">
+                {{ form.name.label_tag }} {{ form.name }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }} {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.message.label_tag }}
+                {{ form.message }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
