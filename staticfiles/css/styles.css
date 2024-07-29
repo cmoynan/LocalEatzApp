@@ -116,6 +116,10 @@ main {
     align-items: flex-start;
 }
 
+h2 {
+    background-color: red !important;
+  }
+
 /* Footer Styling */
 footer {
     background: rgba(0, 0, 0, 0.8); /* Darker smoky background */

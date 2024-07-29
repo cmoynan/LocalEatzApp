@@ -10,8 +10,8 @@
     <h3>Contact Us</h3>
     <p>If you're a restaurant interested in joining our platform, please fill out the form below:</p>
 
-    <div class="contact-form-container" style="display: flex; justify-content: center;">
-        <form method="post" style="width: 100%; max-width: 600px;">
+    <div class="contact-form-container">
+        <form method="post">
             {% csrf_token %}
             {{ form.non_field_errors }}
             <div class="form-group">

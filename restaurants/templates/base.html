@@ -3,6 +3,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'about' as about_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +33,18 @@
                     <li class="nav-item">
                         <a class="btn btn-primary m-1" href="{% url 'account_logout' %}">Logout</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary m-1" href="{% url 'about' %}">Contact Us</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="btn btn-primary m-1" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-primary m-1" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary m-1" href="{% url 'about' %}">Contact Us</a>
                     </li>
                     {% endif %}
                 </ul>
