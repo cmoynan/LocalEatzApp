@@ -9,9 +9,6 @@
             <strong>{{ restaurant.name }}</strong><br>
             {{ restaurant.description }}<br>
             Address: {{ restaurant.address }}<br>
-            {% if restaurant.image %}
-                <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" style="width:200px;"><br>
-            {% endif %}
             <a href="{% url 'book_table' restaurant.id %}" class="book-now-button">Book Now</a>
         </li>
     {% empty %}
