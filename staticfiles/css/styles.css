@@ -57,6 +57,11 @@ header h1 {
     color: #fff;
 }
 
+.btn-btn-signup-right {
+    background-color: #e91e63;
+    color: #fff;
+}
+
 
 /* Main Content Styling */
 main {
@@ -115,10 +120,6 @@ main {
     justify-content: center;
     align-items: flex-start;
 }
-
-h2 {
-    background-color: red !important;
-  }
 
 /* Footer Styling */
 footer {

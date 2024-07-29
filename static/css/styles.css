@@ -34,9 +34,15 @@ header h1 {
 }
 
 .btn-primary {
-    background-color: #ff4081;
+    display: inline-block;
+    background: #ff4081;
     color: #fff;
-    border: none;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem; 
+    border: 2px solid #fff;
 }
 
 .btn-primary:hover {
@@ -56,7 +62,6 @@ header h1 {
     background-color: #e91e63;
     color: #fff;
 }
-
 
 /* Main Content Styling */
 main {

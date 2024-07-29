@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load staticfiles %}
+
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
@@ -12,7 +12,6 @@
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign In" %}</h3>
-            <h1>Nonsense</h1>
             <p>{% blocktrans %}Welcome back to the LocalEatz website. To book a table in one of your favoutie restaurants, then <a class="link" href="{{ signup_url }}">sign up</a>
                 first.{% endblocktrans %}</p>
         </div>
@@ -25,8 +24,9 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn-primary" type="submit">{% trans "Sign In" %}</button>
             </form>
+            
         </div>
     </div>
 </div>
