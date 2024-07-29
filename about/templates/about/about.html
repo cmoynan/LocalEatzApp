@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>About Us</h2>
+    <p>Welcome to LocalEatz, your go-to platform for booking tables at your favorite local restaurants.</p>
+
+    <h3>Contact Us</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
