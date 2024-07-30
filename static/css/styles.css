@@ -132,10 +132,10 @@ footer {
 }
 
 /* Responsive Styling */
-
-@media (max-width: 576px) {
-    .contact-form-container {
-        padding: 15px;
+@media (max-width: 400px) {
+   
+    form {
+        padding-bottom: 150px;
     }
 }
 
