@@ -123,6 +123,7 @@ footer {
     padding: 1rem;
     text-align: center;
     position: fixed;
+    height: min-content;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -131,6 +132,13 @@ footer {
 }
 
 /* Responsive Styling */
+
+@media (max-width: 576px) {
+    .contact-form-container {
+        padding: 15px;
+    }
+}
+
 @media (min-width: 600px) {
     header h1 {
         font-size: 2.2rem;
