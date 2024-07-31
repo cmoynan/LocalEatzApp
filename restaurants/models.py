@@ -1,6 +1,7 @@
+from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 
@@ -23,4 +24,7 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking for {self.name} at {self.restaurant.name} on {self.date} at {self.time}"
-        
+
+
+
+ 
