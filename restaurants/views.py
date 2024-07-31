@@ -52,6 +52,7 @@ def book_table(request, restaurant_id=None, booking_id=None):
 def booking_success(request):
     return render(request, 'restaurants/booking_success.html')
 
+@login_required
 def my_bookings(request):
     user = request.user
     bookings = Booking.objects.filter(user=user)  # Filter by user
