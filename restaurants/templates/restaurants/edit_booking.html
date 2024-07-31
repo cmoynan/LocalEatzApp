@@ -5,24 +5,31 @@
 {% block content %}
 <div class="booking-container">
     <div class="booking-content">
+        <!-- Main heading for the page -->
         <h2>Edit Booking for {{ restaurant.name }}</h2>
 
+        <!-- Form to edit the booking details -->
         <form method="post" action="{% url 'edit_booking' booking.id %}">
             {% csrf_token %}
+            <!-- Input field for the user's name -->
             <label for="name">Your Name:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="name" value="{{ booking.name }}" required><br><br>
 
+            <!-- Input field for the booking date -->
             <label for="date">Date:</label><br>
-            <input type="date" id="date" name="date" required><br><br>
+            <input type="date" id="date" name="date" value="{{ booking.date }}" required><br><br>
 
+            <!-- Dropdown for selecting the booking time -->
             <label for="time">Time:</label><br>
             <select id="time" name="time" required>
-            
+                <!-- Options for time slots will be populated here -->
             </select><br><br>
 
+            <!-- Input field for the party size -->
             <label for="party_size">Party Size:</label><br>
-            <input type="number" id="party_size" name="party_size" required min="2" max="8"><br><br>
+            <input type="number" id="party_size" name="party_size" value="{{ booking.party_size }}" required min="2" max="8"><br><br>
 
+            <!-- Submit button to update the booking -->
             <button type="submit" class="btn-primary">Update Booking</button>
         </form>
     </div>

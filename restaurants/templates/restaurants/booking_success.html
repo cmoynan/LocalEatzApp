@@ -4,8 +4,13 @@
 
 {% block content %}
 <div class="container mt-5 text-center">
+    <!-- Main heading for the success message -->
     <h2 class="mb-4">Your booking was successful!</h2>
+
+    <!-- Message to thank the user and confirm their booking -->
     <p class="mb-4">Thank you for booking with LocalEatz. We look forward to seeing you soon.</p>
+
+    <!-- Button to navigate back to the home page -->
     <a href="{% url 'home' %}" class="btn btn-custom">Back to Home</a>
 </div>
 {% endblock %}

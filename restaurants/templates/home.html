@@ -3,15 +3,22 @@
 {% block title %}Home - Localeatz{% endblock %}
 
 {% block content %}
+<!-- List of restaurants -->
 <ul class="restaurant-list">
+    <!-- Loop through all the restaurants passed from the view -->
     {% for restaurant in restaurants %}
         <li class="restaurant-item">
+            <!-- Display the restaurant's name in bold -->
             <strong>{{ restaurant.name }}</strong><br>
+            <!-- Display the restaurant's description -->
             {{ restaurant.description }}<br>
+            <!-- Display the restaurant's address -->
             Address: {{ restaurant.address }}<br>
+            <!-- Link to book a table at the restaurant -->
             <a href="{% url 'book_table' restaurant.id %}" class="book-now-button">Book Now</a>
         </li>
     {% empty %}
+        <!-- Message shown if there are no restaurants available -->
         <li>No restaurants available.</li>
     {% endfor %}
 </ul>

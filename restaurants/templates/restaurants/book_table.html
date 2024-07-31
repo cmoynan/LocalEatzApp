@@ -5,28 +5,46 @@
 {% block content %}
 <div class="booking-container">
     <div class="booking-content">
+        <!-- Main heading for booking at the specified restaurant -->
         <h2>Book a Table at {{ restaurant.name }}</h2>
 
         {% if user.is_authenticated %}
-        <form method="post" action="{% url 'book_table' restaurant.id %}">
+        <!-- Form for booking a table, only visible to authenticated users -->
+        <form method="post" action="{% url 'book_table' restaurant.id %}" id="booking-form">
             {% csrf_token %}
+            <!-- Input field for the user's name -->
             <label for="name">Your Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
 
+            <!-- Input field for the booking date -->
             <label for="date">Date:</label><br>
             <input type="date" id="date" name="date" required><br><br>
 
+            <!-- Dropdown for selecting the booking time slot -->
             <label for="time">Time:</label><br>
             <select id="time" name="time" required>
-            
+                <!-- Populate time slots dynamically -->
+                {% for slot in time_slots %}
+                    <option value="{{ slot }}">{{ slot }}</option>
+                {% endfor %}
             </select><br><br>
 
+            <!-- Input field for the party size -->
             <label for="party_size">Party Size:</label><br>
             <input type="number" id="party_size" name="party_size" required min="2" max="8"><br><br>
 
+            <!-- Submit button to finalize the booking -->
             <input type="submit" class="book-now-button" value="Book Now">
         </form>
+
+        <!-- Display any messages, e.g., errors or confirmations -->
+        {% for message in messages %}
+            <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
         {% else %}
+        <!-- Message prompting the user to log in if they are not authenticated -->
         <p>You must be logged in to book a table. <a href="{% url 'account_login' %}">Login here</a></p>
         {% endif %}
     </div>
