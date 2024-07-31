@@ -9,7 +9,20 @@
 
         <form method="post" action="{% url 'edit_booking' booking.id %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="date">Date:</label><br>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <label for="time">Time:</label><br>
+            <select id="time" name="time" required>
+            
+            </select><br><br>
+
+            <label for="party_size">Party Size:</label><br>
+            <input type="number" id="party_size" name="party_size" required min="2" max="8"><br><br>
+
             <button type="submit" class="btn-primary">Update Booking</button>
         </form>
     </div>
