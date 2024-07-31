@@ -132,7 +132,7 @@ footer {
     padding: 1rem; /* Padding inside the footer */
     text-align: center; /* Center-align text */
     position: fixed; /* Fix footer at the bottom */
-    height: min-content; /* Auto height based on content */
+    height: 7vh; /* Auto height based on content */
     width: 100%; /* Full width */
     bottom: 0; /* Align to bottom of the viewport */
     left: 0; /* Align to the left edge */
