@@ -90,8 +90,23 @@ def cancel_booking(request, booking_id):
     View to cancel a booking for the current user.
     """
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
-    booking.delete()  # Remove the booking
-    return redirect('my_bookings')  # Redirect to the user's bookings page
+    
+    # Store the booking details before deletion
+    booking_details = {
+        'user': request.user,
+        'booking': booking
+    }
+    
+    # Delete the booking
+    booking.delete()  
+
+    # Send booking cancellation email
+    subject = 'Booking Cancellation'
+    html_message = render_to_string('emails/booking_cancellation.html', booking_details)
+    plain_message = strip_tags(html_message)
+    send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [request.user.email], html_message=html_message)
+
+    return redirect('my_bookings')
 
 @login_required
 def edit_booking(request, booking_id):
@@ -104,8 +119,15 @@ def edit_booking(request, booking_id):
         # Handle form submission for editing
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
-            form.save()
+            updated_booking = form.save()  # Save the booking
             messages.success(request, 'Booking updated successfully.')
+
+            # Send booking update email
+            subject = 'Booking Updated'
+            html_message = render_to_string('emails/booking_update.html', {'user': request.user, 'booking': updated_booking})
+            plain_message = strip_tags(html_message)
+            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [request.user.email], html_message=html_message)
+
             return redirect('my_bookings')  # Redirect to the user's bookings page
         else:
             messages.error(request, 'Please correct the errors below.')

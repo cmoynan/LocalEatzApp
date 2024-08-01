@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Confirmation</title>
+    <title>Booking Cancellation</title>
 </head>
 <body>
-    <h1>Booking Confirmation</h1>
+    <h1>Booking Cancellation</h1>
     <p>Dear {{ booking.user }},</p>
-    <p>Thank you for booking with LocalEatz!</p>
+    <p>We can confirm that your booking has been cancelled.</p>
     <p>Your booking details are as follows:</p>
     <ul>
         <li><strong>Restaurant:</strong> {{ booking.restaurant.name }}</li>
@@ -16,7 +16,7 @@
         <li><strong>Time:</strong> {{ booking.time }}</li>
         <li><strong>Party Size:</strong> {{ booking.party_size }}</li>
     </ul>
-    <p>If you need to make any changes to your booking, please login and go to the My Bookings tab.</p>
+    <p>We hope to hear from you again soon.</p>
     <p>Best regards,<br>LocalEatz Team</p>
 </body>
 </html>
