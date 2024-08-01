@@ -12,7 +12,7 @@ body {
     color: #e0e0e0; /* Light text color for contrast */
     line-height: 1.6; /* Increase line height for readability */
     padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    margin: 0;/* Remove default margin */ 
 }
 
 /* Header Styling */
@@ -61,8 +61,9 @@ header h1 {
 
 /* Main Content Styling */
 main {
-    padding: 4rem 1rem 1rem; /* Padding for main content */
+    padding: 3rem 1rem 4rem; /* Padding for main content */
     margin-top: 4rem; /* Margin to offset for fixed header */
+    min-height: 80vh;
 }
 
 /* Restaurant List Styling */
@@ -132,7 +133,7 @@ footer {
     padding: 1rem; /* Padding inside the footer */
     text-align: center; /* Center-align text */
     position: fixed; /* Fix footer at the bottom */
-    height: 7vh; /* Auto height based on content */
+    height: min-content; /* Auto height based on content */
     width: 100%; /* Full width */
     bottom: 0; /* Align to bottom of the viewport */
     left: 0; /* Align to the left edge */
