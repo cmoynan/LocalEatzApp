@@ -4,6 +4,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import BookingForm
 from .models import Restaurant, Booking
 from django.contrib import messages
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.core.mail import send_mail
+from django.conf import settings
 
 def home(request):
     """
@@ -41,6 +45,12 @@ def book_table(request, restaurant_id=None, booking_id=None):
             new_booking.user = request.user
             new_booking.save()
 
+            # Send booking confirmation email
+            subject = 'Booking Confirmation'
+            html_message = render_to_string('emails/booking_confirmation.html', {'user': request.user, 'booking': new_booking})
+            plain_message = strip_tags(html_message)
+            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [request.user.email], html_message=html_message)
+
             if booking and booking.id != new_booking.id:
                 # Delete the old booking if it was updated
                 booking.delete()
@@ -57,6 +67,7 @@ def book_table(request, restaurant_id=None, booking_id=None):
         'restaurant': restaurant,
         'edit_mode': bool(booking)  # Indicates if the form is in edit mode
     })
+
 
 def booking_success(request):
     """

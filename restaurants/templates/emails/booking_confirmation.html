@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+    <p>Dear {{ user.first_name }},</p>
+    <p>Thank you for booking with LocalEatz!</p>
+    <p>Your booking details are as follows:</p>
+    <ul>
+        <li><strong>Restaurant:</strong> {{ booking.restaurant.name }}</li>
+        <li><strong>Date:</strong> {{ booking.date }}</li>
+        <li><strong>Time:</strong> {{ booking.time }}</li>
+        <li><strong>Party Size:</strong> {{ booking.party_size }}</li>
+    </ul>
+    <p>If you need to make any changes to your booking, please login and go to the My Bookings tab.</p>
+    <p>Best regards,<br>LocalEatz Team</p>
+</body>
+</html>
