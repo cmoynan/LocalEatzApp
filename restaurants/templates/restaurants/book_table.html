@@ -19,15 +19,11 @@
             <!-- Input field for the booking date -->
             <label for="date">Date:</label><br>
             <input type="date" id="date" name="date" required><br><br>
-
-            <!-- Dropdown for selecting the booking time slot -->
+            
             <label for="time">Time:</label><br>
-            <select id="time" name="time" required>
-                <!-- Populate time slots dynamically -->
-                {% for slot in time_slots %}
-                    <option value="{{ slot }}">{{ slot }}</option>
-                {% endfor %}
-            </select><br><br>
+                <select id="time" name="time" required>
+                    
+                </select><br><br>
 
             <!-- Input field for the party size -->
             <label for="party_size">Party Size:</label><br>
@@ -49,4 +45,31 @@
         {% endif %}
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const select = document.getElementById('time');
+        if (!select) {
+            console.error('Select element with ID "time" not found.');
+            return;
+        }
+
+        const startTime = new Date();
+        const endTime = new Date();
+
+        startTime.setHours(12, 0, 0);
+        endTime.setHours(21, 0, 0);
+
+        select.innerHTML = '';  // Clear existing options
+
+        while (startTime <= endTime) {
+            const option = document.createElement('option');
+            const timeString = startTime.toTimeString().substring(0, 5);
+            option.value = timeString;
+            option.textContent = timeString;
+            select.appendChild(option);
+
+            startTime.setHours(startTime.getHours() + 1);
+        }
+    });
+    </script>
 {% endblock %}
