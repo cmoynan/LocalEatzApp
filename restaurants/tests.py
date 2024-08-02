@@ -5,6 +5,7 @@ from datetime import date, time
 
 # Create your tests here.
 
+
 class RestaurantModelTest(TestCase):
     def setUp(self):
         """
@@ -26,7 +27,11 @@ class RestaurantModelTest(TestCase):
         restaurant = Restaurant.objects.get(id=self.restaurant.id)
         self.assertEqual(restaurant.name, 'Pizza Haven')
         self.assertEqual(restaurant.address, 'Main Street Maynooth Co.Kildare')
-        self.assertEqual(restaurant.description, 'The best pizza in all of Ireland')
+        self.assertEqual(
+         restaurant.description,
+         'The best pizza in all of Ireland'
+        )
+
         self.assertEqual(restaurant.max_tables, 10)
 
     def test_string_representation(self):
@@ -36,14 +41,19 @@ class RestaurantModelTest(TestCase):
         """
         self.assertEqual(str(self.restaurant), 'Pizza Haven')
 
+
 class BookingModelTest(TestCase):
     def setUp(self):
         """
         Set up the test environment by creating a User, a Restaurant,
-        and a Booking instance. This method is called before each test method runs.
+        and a Booking instance. This method
+        is called before each test method runs.
         """
         # Create a user for testing
-        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user = User.objects.create_user(
+         username='testuser',
+         password='12345'
+        )
 
         # Create a restaurant for testing
         self.restaurant = Restaurant.objects.create(
@@ -52,7 +62,6 @@ class BookingModelTest(TestCase):
             description='A place for testing',
             max_tables=10
         )
-        
         # Create a booking for testing
         self.booking = Booking.objects.create(
             user=self.user,
@@ -81,5 +90,9 @@ class BookingModelTest(TestCase):
         Test the string representation of the Booking object.
         Ensures that the string representation matches the expected format.
         """
-        expected_str = f"Booking for {self.booking.name} at {self.booking.restaurant.name} on {self.booking.date} at {self.booking.time}"
+        expected_str = (
+         f"Booking for {self.booking.name} at {self.booking.restaurant.name} "
+         f"on {self.booking.date} at {self.booking.time}"
+        )
+
         self.assertEqual(str(self.booking), expected_str)

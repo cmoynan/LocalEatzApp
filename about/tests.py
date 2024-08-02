@@ -3,6 +3,7 @@ from .models import ContactQuery
 from datetime import datetime
 from django.utils import timezone
 
+
 class ContactQueryModelTest(TestCase):
     def setUp(self):
         self.contact = ContactQuery.objects.create(
@@ -20,13 +21,16 @@ class ContactQueryModelTest(TestCase):
 
     def test_string_representation(self):
         """Test the string representation of the ContactQuery object."""
-        self.assertEqual(str(self.contact), 'John Doe - john.doe@example.com')
-    
+        expected_str = 'John Doe - john.doe@example.com'
+        self.assertEqual(str(self.contact), expected_str)
+
     def test_creation_time(self):
         """Test that the created_at field is set to the current time upon creation."""
         contact = ContactQuery.objects.get(id=self.contact.id)
         self.assertIsInstance(contact.created_at, datetime)
-        self.assertAlmostEqual(contact.created_at, timezone.now(), delta=timezone.timedelta(seconds=5))
-
-
-    
+        now = timezone.now()
+        self.assertAlmostEqual(
+            contact.created_at,
+            now,
+            delta=timezone.timedelta(seconds=5)
+        )

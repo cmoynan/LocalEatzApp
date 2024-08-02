@@ -9,6 +9,7 @@ from django.utils.html import strip_tags
 from django.core.mail import send_mail
 from django.conf import settings
 
+
 def home(request):
     """
     View for the home page showing a list of all restaurants.
@@ -16,10 +17,12 @@ def home(request):
     restaurants = Restaurant.objects.all()  # Get all restaurant objects
     return render(request, 'home.html', {'restaurants': restaurants})
 
+
 @login_required
 def book_table(request, restaurant_id=None, booking_id=None):
     """
-    View to handle booking a table. Can handle both new bookings and editing existing ones.
+    View to handle booking a table. Can handle
+    both new bookings and editing existing ones.
     """
     restaurant = None
     if restaurant_id:
@@ -27,7 +30,8 @@ def book_table(request, restaurant_id=None, booking_id=None):
         restaurant = get_object_or_404(Restaurant, id=restaurant_id)
 
     if booking_id:
-        # Fetch existing booking by ID if provided and ensure it's by the current user
+        # Fetch existing booking by ID if provided and
+        # ensure it's by the current user
         booking = get_object_or_404(Booking, id=booking_id, user=request.user)
         if restaurant is None:
             # Set the restaurant from the booking if it was not provided
@@ -47,15 +51,23 @@ def book_table(request, restaurant_id=None, booking_id=None):
 
             # Send booking confirmation email
             subject = 'Booking Confirmation'
-            html_message = render_to_string('emails/booking_confirmation.html', {'user': request.user, 'booking': new_booking})
+            html_message = render_to_string(
+             'emails/booking_confirmation.html',
+             {'user': request.user, 'booking': new_booking}
+            )
+
             plain_message = strip_tags(html_message)
-            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [request.user.email], html_message=html_message)
+            send_mail(
+             subject, plain_message, settings.DEFAULT_FROM_EMAIL,
+             [request.user.email], html_message=html_message
+            )
 
             if booking and booking.id != new_booking.id:
                 # Delete the old booking if it was updated
                 booking.delete()
 
-            return redirect('my_bookings')  # Redirect to the user's bookings page
+            # Redirect to the user's bookings page
+            return redirect('my_bookings')
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
@@ -75,14 +87,17 @@ def booking_success(request):
     """
     return render(request, 'restaurants/booking_success.html')
 
+
 @login_required
 def my_bookings(request):
     """
     View to list all bookings for the current user.
     """
     user = request.user
-    bookings = Booking.objects.filter(user=user)  # Filter bookings by the current user
+    # Filter bookings by the current user
+    bookings = Booking.objects.filter(user=user)
     return render(request, 'users/my_bookings.html', {'bookings': bookings})
+
 
 @login_required
 def cancel_booking(request, booking_id):
@@ -90,23 +105,28 @@ def cancel_booking(request, booking_id):
     View to cancel a booking for the current user.
     """
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
-    
+
     # Store the booking details before deletion
     booking_details = {
         'user': request.user,
         'booking': booking
     }
-    
+
     # Delete the booking
-    booking.delete()  
+    booking.delete()
 
     # Send booking cancellation email
     subject = 'Booking Cancellation'
-    html_message = render_to_string('emails/booking_cancellation.html', booking_details)
+    html_message = render_to_string(
+        'emails/booking_cancellation.html', booking_details
+     )
+
     plain_message = strip_tags(html_message)
-    send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [request.user.email], html_message=html_message)
+    send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL,
+              [request.user.email], html_message=html_message)
 
     return redirect('my_bookings')
+
 
 @login_required
 def edit_booking(request, booking_id):
@@ -124,11 +144,18 @@ def edit_booking(request, booking_id):
 
             # Send booking update email
             subject = 'Booking Updated'
-            html_message = render_to_string('emails/booking_update.html', {'user': request.user, 'booking': updated_booking})
-            plain_message = strip_tags(html_message)
-            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [request.user.email], html_message=html_message)
+            html_message = render_to_string(
+             'emails/booking_update.html',
+             {'user': request.user, 'booking': updated_booking}
 
-            return redirect('my_bookings')  # Redirect to the user's bookings page
+            )
+
+            plain_message = strip_tags(html_message)
+            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL,
+                      [request.user.email],
+                      html_message=html_message)
+            # Redirect to the user's bookings page
+            return redirect('my_bookings')
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
