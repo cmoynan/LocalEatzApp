@@ -39,3 +39,5 @@ Frontend: The user interface is designed for an intuitive user experience.
 # CRUD Functionality
 Users: Full Create, Read, Update, and Delete (CRUD) functionality for managing bookings.
 Admins: Full CRUD functionality for managing restaurants,bookings and users.
+
+.
