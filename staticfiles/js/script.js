@@ -22,29 +22,3 @@ function confirmCancel(bookingId) {
         window.location.href = `/cancel-booking/${bookingId}/`;
     }
 }
-
-function selectTime() {
-    const select = document.getElementById('time');
-    if (!select) {
-        console.error('Select element with ID "time" not found.');
-        return;
-    }
-
-    const startTime = new Date();
-    const endTime = new Date();
-
-    startTime.setHours(12, 0, 0);
-    endTime.setHours(21, 0, 0);
-
-    select.innerHTML = '';  // Clear existing options
-
-    while (startTime <= endTime) {
-        const option = document.createElement('option');
-        const timeString = startTime.toTimeString().substring(0, 5);
-        option.value = timeString;
-        option.textContent = timeString;
-        select.appendChild(option);
-
-        startTime.setHours(startTime.getHours() + 1);
-    }
-};
