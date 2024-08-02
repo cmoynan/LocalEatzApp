@@ -1,185 +1,196 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 /* Body and Font Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background: #1c1c1c; /* Dark background */
-    color: #e0e0e0; /* Light text color */
-    line-height: 1.6;
-    padding: 0;
-    margin: 0;
+    font-family: 'Arial', sans-serif; /* Set font to Arial or sans-serif fallback */
+    background: #1c1c1c; /* Dark background color */
+    color: #e0e0e0; /* Light text color for contrast */
+    line-height: 1.6; /* Increase line height for readability */
+    padding: 0; /* Remove default padding */
+    margin: 0;/* Remove default margin */ 
 }
 
 /* Header Styling */
 header {
-    background: rgba(0, 0, 0, 0.8); /* Darker smoky background */
-    color: #ff4081; /* Funky pink color */
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensure header is on top */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background for header */
+    color: #ff4081; /* Funky pink text color */
+    text-align: center; /* Center-align text */
+    position: fixed; /* Fix header at the top */
+    width: 100%; /* Full width */
+    top: 0; /* Align to top of the viewport */
+    left: 0; /* Align to the left edge */
+    z-index: 1000; /* Ensure header is above other content */
 }
 
 header h1 {
-    font-size: 2rem;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.7); /* Funky text shadow */
+    font-size: 2rem; /* Font size for heading */
+    margin: 0; /* Remove default margin */
+    text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.7); /* Funky pink text shadow for a glow effect */
 }
 
+/* Primary Button Styling */
 .btn-primary {
-    background-color: #ff4081;
-    color: #fff;
-    border: none;
+    background-color: #ff4081; /* Funky pink background color */
+    color: #fff; /* White text color */
+    border-radius: 4px; /* Rounded corners */
+    border-color: #ff4081; /* Border color matches background */
 }
 
 .btn-primary:hover {
-    background-color: #ee9db8;
-    transform: scale(1.05);
-    color: #fff;
+    background-color: #ee9db8; /* Lighter pink on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+    color: #fff; /* Ensure text remains white */
 }
 
-
+/* Custom Button Styling */
 .btn-custom {
-    background-color: #ff4081;
-    color: #fff;
-    border: none;
+    background-color: #ff4081; /* Funky pink background color */
+    color: #fff; /* White text color */
+    border: none; /* No border */
 }
 
 .btn-custom:hover {
-    background-color: #e91e63;
-    color: #fff;
+    background-color: #e91e63; /* Darker pink on hover */
+    color: #fff; /* Ensure text remains white */
 }
-
-.btn-btn-signup-right {
-    background-color: #e91e63;
-    color: #fff;
-}
-
 
 /* Main Content Styling */
 main {
-    padding: 4rem 1rem 1rem;
-    margin-top: 4rem; 
+    padding: 3rem 1rem 4rem !important; /* Padding for main content */
+    margin-top: 4rem; /* Margin to offset for fixed header */
 }
 
 /* Restaurant List Styling */
 .restaurant-list {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
 }
 
 .restaurant-item {
     background: rgba(255, 20, 147, 0.1); /* Light funky pink background */
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Strong shadow for a deeper look */
-    text-align: center;
-    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 8px; /* Rounded corners */
+    padding: 1.5rem; /* Padding inside the item */
+    margin-bottom: 1.5rem; /* Space between items */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    text-align: center; /* Center-align text */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
 }
 
 .restaurant-item:hover {
-    background: rgba(255, 20, 147, 0.2); /* Slightly darker on hover */
+    background: rgba(255, 20, 147, 0.2); /* Slightly darker background on hover */
     transform: translateY(-5px); /* Lift effect on hover */
 }
 
 .restaurant-item img {
-    border-radius: 8px;
-    max-width: 100%; /* Make sure images are responsive */
-    height: auto;
+    border-radius: 8px; /* Rounded corners for images */
+    max-width: 100%; /* Responsive image width */
+    height: auto; /* Maintain aspect ratio */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for images */
 }
 
+/* Booking Button Styling */
 .book-now-button {
-    display: inline-block;
-    background: #ff4081; /* Funky pink color */
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.3s ease, transform 0.3s ease;
-    font-size: 1.1rem; /* Set font size */
-    border: 2px solid #fff; /* White border for button */
+    display: inline-block; /* Align as inline block */
+    background: #ff4081; /* Funky pink background color */
+    color: #fff; /* White text color */
+    padding: 0.75rem 1.5rem; /* Padding inside the button */
+    text-decoration: none; /* Remove underline from text */
+    border-radius: 4px; /* Rounded corners */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+    font-size: 1.1rem; /* Font size */
+    border: 2px solid #fff; /* White border around the button */
 }
 
 .book-now-button:hover {
     background: #e91e63; /* Darker pink on hover */
     transform: scale(1.05); /* Slightly enlarge button on hover */
-    text-decoration: none;
+    text-decoration: none; /* Remove underline from text */
 }
 
+/* Booking Container Styling */
 .booking-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align items at the start vertically */
 }
+
+table {
+    max-width: fit-content;
+    text-align: center;
+}
+
 
 /* Footer Styling */
 footer {
-    background: rgba(0, 0, 0, 0.8); /* Darker smoky background */
-    color: #ff4081; /* Funky pink color */
-    padding: 1rem;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 1000; /* Ensure footer is on top */
-    border-top: 2px solid #ff4081; /* Funky pink border at the top */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background for footer */
+    color: #ff4081; /* Funky pink text color */
+    padding: 1rem; /* Padding inside the footer */
+    text-align: center; /* Center-align text */
+    position: fixed; /* Fix footer at the bottom */
+    height: min-content; /* Auto height based on content */
+    width: 100%; /* Full width */
+    bottom: 0; /* Align to bottom of the viewport */
+    left: 0; /* Align to the left edge */
+    z-index: 1000; /* Ensure footer is above other content */
+    border-top: 2px solid #ff4081; /* Pink border at the top */
 }
 
 /* Responsive Styling */
+@media (max-width: 400px) {
+    form {
+        padding-bottom: 150px; /* Extra padding to avoid overlap with footer on small screens */
+    }
+}
+
 @media (min-width: 600px) {
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* Larger font size for heading on medium screens */
     }
 
     .restaurant-item {
-        padding: 2rem;
+        padding: 2rem; /* More padding inside items on medium screens */
     }
 
     .book-now-button {
-        padding: 0.8rem 1.8rem;
-        font-size: 1.2rem;
+        padding: 0.8rem 1.8rem; /* Larger padding for button on medium screens */
+        font-size: 1.2rem; /* Larger font size for button text */
     }
 }
 
 @media (min-width: 768px) {
     header h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Larger font size for heading on larger screens */
     }
 
     .restaurant-item {
-        padding: 2.5rem;
+        padding: 2.5rem; /* Even more padding inside items on larger screens */
     }
 
     .book-now-button {
-        padding: 1rem 2rem;
-        font-size: 1.3rem;
+        padding: 1rem 2rem; /* Larger padding for button on larger screens */
+        font-size: 1.3rem; /* Larger font size for button text */
     }
 }
 
 @media (min-width: 1024px) {
     header h1 {
-        font-size: 3rem;
+        font-size: 3rem; /* Even larger font size for heading on extra-large screens */
     }
 
     .restaurant-item {
-        padding: 3rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 3rem; /* Maximum padding inside items on extra-large screens */
+        max-width: 800px; /* Maximum width for restaurant items */
+        margin-left: auto; /* Center horizontally */
+        margin-right: auto; /* Center horizontally */
     }
 
     .book-now-button {
-        padding: 1.2rem 2.5rem;
-        font-size: 1.4rem;
+        padding: 1.2rem 2.5rem; /* Maximum padding for button on extra-large screens */
+        font-size: 1.4rem; /* Maximum font size for button text */
     }
 }
