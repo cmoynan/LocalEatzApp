@@ -160,6 +160,9 @@ Booking Creation: Verifies that a Booking object is created correctly with the s
 String Representation: Ensures the Booking object’s string representation matches the expected format (e.g., "Booking for John Doe at Test Restaurant on 2024-08-01 at 19:00").
 
 ### Conclusion
+
+![image](https://github.com/user-attachments/assets/c362fc97-910d-492c-bd0d-645d2f4fed13)
+
 These tests help maintain the integrity and reliability of the application's core functionalities, ensuring that critical operations related to contact queries, restaurants, and bookings perform as expected.
 
 # Manual Test Cases
