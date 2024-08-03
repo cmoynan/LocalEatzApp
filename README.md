@@ -55,6 +55,55 @@ Booking Management: View and manage all bookings, with the ability to delete the
 
 ![image](https://github.com/user-attachments/assets/0eb9fad2-521e-411b-be60-d1b94c7b1fb3)
 
+# Authentication
+
+### Email Requirement
+For my application, email addresses are a mandatory part of the user setup process. This ensures that users receive important emails regarding any changes to bookings. During registration, users must provide a valid email address, which is used for email verification and other account-related notifications.
+
+![image](https://github.com/user-attachments/assets/89e35bd0-7c2f-4465-b374-6d3a978919d7)
+
+
+### Form Validation
+To maintain the integrity of the data, all forms on the website incorporate authentication checks on the email fields. This validation prevents the entry of incorrect or invalid email addresses, ensuring that users provide a valid and reachable email address during registration and other interactions.
+
+![image](https://github.com/user-attachments/assets/998f6a5e-cd81-4439-96ec-b2e07f3af9d5)
+
+
+![image](https://github.com/user-attachments/assets/689ad1e7-35ea-4d41-8544-ebc4cc32bf0a)
+
+### Booking Restrictions
+
+To ensure an optimal dining experience, we have implemented a policy that restricts the minimum party size to 2 and the maximum party size to 8 for bookings. This helps manage restaurant capacities and ensures that all guests receive the best possible service.
+
+
+![image](https://github.com/user-attachments/assets/be1b376f-377a-47da-ae56-5c24f55eba81) ![image](https://github.com/user-attachments/assets/22fa91d6-1db6-4c56-8f1e-6c8ddcf420be)
+
+
+
+### Password Reset
+I understand that users may forget their passwords. Hence, I have implemented a straightforward password reset mechanism via email. Users can request a password reset, and an email will be sent to their registered email address with a link to reset their password. Additionally, if users forget their username, the password reset email will also include their username as a reminder. This feature helps users regain access to their accounts quickly and efficiently.
+
+![image](https://github.com/user-attachments/assets/0847a0ab-48b8-47e9-a79d-e24fc0acbfa3)
+
+### Implementation Details
+
+Form Authentication: All forms requiring email input use Django's built-in form validation to check for the correctness and validity of the email addresses. This step is crucial in preventing invalid email addresses from being submitted.
+
+### Password Reset Workflow:
+
+Users can initiate a password reset request from the login page.
+An email containing a password reset link is sent to the user's registered email address.
+The email template for the password reset includes the following:
+A message informing the user about the password reset request.
+A link to reset the password.
+The user's username for reference.
+Users can click the link, set a new password, and regain access to their account.
+Email Template Customization
+The email templates used for notifications and password resets are customized to provide a seamless and user-friendly experience. Below is an example template for the password reset email:
+
+By implementing these authentication measures, we ensure a secure and user-friendly experience for our users, making it easy for them to manage their accounts and bookings.
+
+
 
 # Technology Stack
 Backend: Powered by Django, ensuring a robust and scalable backend.
@@ -115,21 +164,21 @@ These tests help maintain the integrity and reliability of the application's cor
 
 # Manual Test Cases
 
-## User Registration and Login
+### User Registration and Login
 Verified user can register and log in without issues.
 Checked validation messages for incorrect login attempts.
 Forgot Password Functionality
 Ensured the forgot password link is visible on the login page.
 Verified the password reset email is sent and the reset process works correctly.
 
-## Booking a Table
+### Booking a Table
 Tested the table booking process for authenticated users.
 Ensured date and time selection works correctly and displays available slots.
 Booking Management
 Verified that users can view, update, and cancel their bookings.
 Ensured the cancellation confirmation prompt appears and functions correctly.
 
-## Admin Functionality
+### Admin Functionality
 
 Tested the CRUD operations for managing restaurants and bookings.
 Verified that admins can view, create, update, and delete restaurants and bookings.
@@ -138,7 +187,7 @@ Checked the layout and functionality on different screen sizes.
 Ensured no elements overlap or break on smaller screens.
 Verified touch interactions on mobile devices.
 
-## Performance Testing
+### Performance Testing
 Ensured pages load quickly and efficiently.
 Checked that JavaScript functionality, such as dynamic form updates, performs well across different browsers and devices.
 Cross-Browser Compatibility
@@ -148,12 +197,12 @@ Ran Lighthouse on devtools to get a performance score.
 
 ![image](https://github.com/user-attachments/assets/bd27258a-00d0-452a-8fbf-6e400da9e57e)
 
-## CSS Validator
+### CSS Validator
 
 ![image](https://github.com/user-attachments/assets/28f360de-7fff-4b87-9e8c-f862399e7a8a)
 
 
-## Conclusion
+### Conclusion
 
 Manual testing across various browsers and devices helps ensure the application is user-friendly and functional for all users, regardless of their preferred platform. This comprehensive approach helps catch issues that may not be covered by automated tests, providing a robust and reliable user experience.
 
@@ -211,6 +260,22 @@ Alternatively, the project may explore other user authentication packages that o
 
 ### Workaround
 The sign up page while functional still has these vaildation errors but they are not noticeable from a user perspective and as it is a third party add in I decided to keep it in.
+
+## JavaScript File Issue
+
+One of the known issues with the website is related to the JavaScript file responsible for showing available times on the booking form. The code works correctly when included directly within the HTML files for making or editing a booking. However, when the same code is moved to an external JavaScript file, it fails to function as expected.
+
+Despite several attempts to resolve this issue, including collecting static files and verifying the paths, the script in the external file still did not work. Interestingly, other JavaScript functionalities, such as the cancel button, which also use external JavaScript files, are working correctly.
+
+### Temporary Solution
+Given the constraints and time spent trying to fix this issue, the decision was made to keep the time availability script directly in the relevant HTML files. This approach ensures that the functionality works as intended, even though it is not the ideal solution of using an external JavaScript file.
+
+### Additional Details
+
+Static File Collection: Ensured that static files were correctly collected and served by the Django application. Despite this, the time availability script in the external file did not function.
+Script Inclusion: Verified that the external JavaScript file was correctly linked in the HTML files and loaded without errors.
+Code Consistency: Confirmed that the same code block works within the HTML files, indicating that the issue lies with the external file inclusion rather than the script itself.
+By keeping the script within the HTML files, we maintain the necessary functionality for users to see available times when making or editing a booking. This workaround allows the website to operate smoothly while ensuring a good user experience.
 
 
 # Future Plans
